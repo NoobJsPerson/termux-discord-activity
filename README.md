@@ -10,7 +10,7 @@ git clone https://github.com/NoobJsPerson/termux-discord-activity
 ```sh
 cd termux-discord-activity && chmod +x setup.sh && ./setup.sh
 ```
-- replace `yourtokenhere` by your discord token in the `.env` variable
+- replace `yourtokenhere` by your discord token in the `.env` file
 - run the nodejs
 ```sh
 node index.js
