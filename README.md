@@ -16,5 +16,6 @@ cd termux-discord-activity && chmod +x setup.sh && ./setup.sh
 node index.js
 ```
 - wait about 10 seconds
-- taadaa! it should've worked by now if you did all the steps correctly
+- taadaa! it should've worked by now if you did all the steps correctly.
+
 please make an issue if you faced a problem or want to give a suggestion
