@@ -22,5 +22,7 @@ node index.js
 ```
 - wait about 10 seconds
 - taadaa! it should've worked by now if you did all the steps correctly.
+### Note
+Always use the `exit` command to close all your sessions if you want to exit from termux or itll break
 
 please make an issue if you faced a problem or want to give a suggestion
