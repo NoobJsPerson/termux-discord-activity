@@ -10,7 +10,7 @@ git clone https://github.com/NoobJsPerson/termux-discord-activity
 ```sh
 cd termux-discord-activity && chmod +x setup.sh && ./setup.sh
 ```
-- restart termux
+- stop termux by pressing exit on the notification bar and open it again
 - replace `yourtokenhere` by your discord token in the `.env` file
 - install the dependencies
 ```sh
