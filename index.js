@@ -31,7 +31,7 @@ if(json.s) seq = json.s;
 switch(json.op){
 		case 10:
 		reconnect = true;
-		if(!interval) interval = setInterval(()=> {
+		interval = setInterval(()=> {
 					console.log("pinged");
 					dws.send(JSON.stringify({op:1,d: seq}));
 					reconnect = true;
@@ -74,7 +74,7 @@ switch(json.op){
 	session_id = json.d.session_id;
 	console.log(session_id, seq);
 	console.log(`client ready on ${json.d.user.username}#${json.d.user.discriminator}`);
-	/*if(!statusInterval) statusInterval = setInterval(()=>{
+	statusInterval = setInterval(()=>{
 			dws.send(JSON.stringify({
 				op:3,
 				d:{
@@ -84,11 +84,12 @@ switch(json.op){
 						state: `${execSync("printf $(cat ~/.sessions)")} session(s)`
     			}],
     			status:"dnd",
-    			afk:false
+    			afk:false,
+			since:null
 				}
 			}));
 			console.log("status updated");
-		},20000);*/
+		},20000);
 	break;
 	case "RESUMED":
 		console.log("really resumed");
@@ -98,6 +99,8 @@ switch(json.op){
 efn = dws.onclose = dws.onerror = ({code, reason, error}) => {
 console.log(`closed: ${error||code+' '+reason}`);
    if (reconnect) {
+   clearInterval(interval);
+   clearInterval(statusInterval);
    dws = new ws('wss://gateway.discord.gg/?v=8&encoding=json');
    dws.onclose = dws.onerror = efn;
    dws.onmessage = mfn;
