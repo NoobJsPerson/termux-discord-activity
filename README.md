@@ -1,6 +1,4 @@
-# ⚠️ WARNING:
-this branch is still under development it won't work for now
-## termux-discord-activity
+# termux-discord-activity
 a small tool using using nodejs and bash to give you a discord playing status about termux and its sessions
 ### Setup
 follow these steps to get the tool up and running
