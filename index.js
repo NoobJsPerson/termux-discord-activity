@@ -36,21 +36,7 @@ switch(json.op){
 					dws.send(JSON.stringify({op:1,d: seq}));
 					reconnect = true;
 			},json.d.heartbeat_interval);
-		
-		if(!isResume){
 			dws.send(identifyStr);
-			isResume = true;
-		} else {
-			dws.send(JSON.stringify({
-	 		op:6,
-	 		d:{
-				token,
-				session_id,
-				seq
-			}
-			}));
-			console.log("resumed");
-		}
 		break;
 		case 1:
 			console.log("pinged");
