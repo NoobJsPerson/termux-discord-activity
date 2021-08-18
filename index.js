@@ -32,7 +32,7 @@ switch(json.op){
 		case 10:
 		console.log("Debug: 10 Hello");
 		reconnect = true;
-		if(!interval) interval = setInterval(()=> {
+		interval = setInterval(()=> {
 					console.log("Debug: 1 Ping");
 					dws.send(JSON.stringify({op:1,d: seq}));
 					isPonged = false;
@@ -79,7 +79,7 @@ switch(json.op){
 	session_id = json.d.session_id;
 	console.log(session_id, seq);
 	console.log(`client ready on ${json.d.user.username}#${json.d.user.discriminator}`);
-if(!statusInterval) statusInterval = setInterval(()=>{
+	statusInterval = setInterval(()=>{
 			dws.send(JSON.stringify({
 				op:3,
 				d:{
