@@ -86,7 +86,8 @@ if(!statusInterval) statusInterval = setInterval(()=>{
 					activities: [{
 						type: 0,
 						name: "Termux: Linux terminal environment for Android",
-						state: `${execSync("printf $(cat ~/.sessions)")} session(s)`
+						state: `${execSync("printf $(cat ~/.sessions)")} session(s)`,
+						application_id: "765223157065711616"
     			}],
     			status:"dnd",
     			afk:false,
@@ -103,7 +104,9 @@ if(!statusInterval) statusInterval = setInterval(()=>{
 };
 efn = dws.onclose = dws.onerror = ({code, reason, error}) => {
 	console.log(`Closed: ${error||code+' '+reason}`);
-   dws = new ws('wss://gateway.discord.gg/?v=7&encoding=json');
-   dws.onclose = dws.onerror = efn;
-   dws.onmessage = mfn;
+	clearInterval(interval);
+	clearInterval(statusInterval);
+	dws = new ws('wss://gateway.discord.gg/?v=7&encoding=json');
+	dws.onclose = dws.onerror = efn;
+	dws.onmessage = mfn;
 };
